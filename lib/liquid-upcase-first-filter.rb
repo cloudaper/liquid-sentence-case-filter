@@ -1,12 +1,16 @@
 require 'liquid'
 
-module UpcaseFirst
+module Liquid
 
-  # Convert the first letter of an input string to upcase and keep the rest
-  def upcase_first(input)
-    input.to_s.sub(/\S/, &:upcase)
+  module UpcaseFirst
+
+    # Convert the first letter of an input string to upcase and keep the rest
+    def upcase_first(input)
+      input.to_s.sub(/\S/, &:upcase)
+    end
+
   end
 
-end
+  Template.register_filter(UpcaseFirst)
 
-Liquid::Template.register_filter(UpcaseFirst)
+end
